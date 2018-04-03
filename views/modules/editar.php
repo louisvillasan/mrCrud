@@ -1,4 +1,8 @@
 <?php
+	session_start();
+	if(!$_SESSION["validar"])
+		header("location:index.php?action=ingresar");
+
 	$ingreso = new MvcController();
 	$datos = $ingreso->traerUsuarioController();
 

@@ -64,6 +64,10 @@ class MvcController{
 			$respuesta = Datos::ingresoUsuarioModel($datos, 'usuario');
 
 			if($respuesta["user"] == $_POST["usuarioIn"] && $respuesta["password"] == $_POST["passwordIn"]){
+// Inicializar sesion
+				session_start();
+				$_SESSION["validar"] = true;
+				
 				header("location:index.php?action=usuarios");
 
 			}else{
@@ -82,7 +86,7 @@ class MvcController{
 				<td>'.$item["password"].'</td>
 				<td>'.$item["email"].'</td>
 				<td><a href="index.php?action=editar&id='.$item["ID"].'"><button>Editar</button></a></td>
-				<td><button>Borrar</button></td>
+				<td><a href="index.php?action=usuarios&idBorrar='.$item["ID"].'"><button>Borrar</button></a></td>
 			</tr>';
 		}
 	}
@@ -112,6 +116,22 @@ class MvcController{
 		}
 	}
 
+	// BORRAR
+	public function BorrarUsuarioController(){
+		
+		if(isset($_GET["idBorrar"])){
+
+			$dato = $_GET['idBorrar'];
+
+			$respuesta = Datos::borrarUsuarioModel($dato, 'usuario');
+
+			if ($respuesta=="success"){
+				header("location:index.php?action=usuarios");
+			}else{
+				echo ("A sucedido un error");
+			}
+		}
+	}
 
 }
 

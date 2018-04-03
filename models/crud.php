@@ -64,6 +64,18 @@ class Datos extends Conexion
 		}
 
 	}
+
+	// Borrar usuario
+		public function borrarUsuarioModel($dato, $tabla){
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE ID = :id");
+		$stmt->bindParam(":id", $dato,PDO::PARAM_INT);
+		if ($stmt->execute())
+			return "success";
+		else
+			return "Error";
+		}	
+
 }
 
 ?>

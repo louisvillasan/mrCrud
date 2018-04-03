@@ -2,7 +2,7 @@
 	class Conexion
 	{
 		
-		function conectar(){
+		protected function conectar(){
 			$link = new PDO("mysql:host=localhost;dbname=sineditar", "root", "");
 			return $link;
 		}

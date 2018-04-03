@@ -16,7 +16,7 @@ class Paginas{
 			$module =  "views/modules/registro.php";
 		
 		}elseif ($enlaces =="ok") {
-			$module =  "views/modules/registro.php";
+			$module =  "views/modules/usuarios.php";
 		
 		}elseif ($enlaces =="usuarios") {
 			$module =  "views/modules/usuarios.php";
