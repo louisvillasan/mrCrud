@@ -88,6 +88,7 @@
 
 <?php include "modules/navegacion.php"; ?>
 
+<script src="views/js/validarRegistro.js"></script>
 
 <section>
 

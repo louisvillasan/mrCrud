@@ -33,6 +33,7 @@ class MvcController{
 
 	}
 
+
 	// REgristro de usuario
 	// -------------------------
 
@@ -47,6 +48,9 @@ class MvcController{
 			$respuesta = Datos::registroUsuarioModel($datos, 'usuario');
 
 			if ($respuesta=="success"){
+				session_start();
+				$_SESSION["validar"] = true;
+				
 				header("location:index.php?action=ok");
 			}else{
 				header("location:index.php");
@@ -67,7 +71,6 @@ class MvcController{
 // Inicializar sesion
 				session_start();
 				$_SESSION["validar"] = true;
-				
 				header("location:index.php?action=usuarios");
 
 			}else{

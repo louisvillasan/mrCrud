@@ -1,12 +1,16 @@
+
+
 <h1>REGISTRO DE USUARIO</h1>
 
-<form method="post">
-	
-	<input type="text" placeholder="Usuario" name="usuario" required>
+<form method="post" onsubmit="return validarRegistro()">
+	<label for="usuario">Usuario</label>	
+	<input type="text" placeholder="Menos de 6 caracteres" name="usuario" id="usuario" required>
 
-	<input type="password" placeholder="Contraseña" name="password" required>
+	<label for="password">Contrase;a</label>	
+	<input type="password" placeholder="Contraseña" name="password" id="password" required>
 
-	<input type="email" placeholder="Email" name="email" required>
+	<label for="email">Email</label>	
+	<input type="email" placeholder="Email" name="email" id="email" required>
 
 	<input type="submit" value="Enviar">
 
