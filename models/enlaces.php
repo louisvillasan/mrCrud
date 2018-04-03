@@ -23,6 +23,11 @@ class Paginas{
 		
 		}elseif ($enlaces =="fallo") {
 			$module =  "views/modules/ingresar.php";
+		
+		}elseif ($enlaces =="editar") {
+			
+			$module =  "views/modules/editar.php";
+		
 		}
 
 		else{
