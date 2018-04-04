@@ -41,19 +41,26 @@ class MvcController{
 
 		if(isset($_POST["usuario"])){
 
-			$datos = array("usuario" =>$_POST["usuario"] ,
-										"email" =>$_POST["email"],
-										"password" =>$_POST["password"]);
-			// var_dump($datos);
-			$respuesta = Datos::registroUsuarioModel($datos, 'usuario');
+			if (preg_match('/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/', $_POST["password"]) &&
+			 preg_match('/^[a-zA-Z0-9]{6,}/', $_POST["usuario"])
+			){
+				// $password = $_POST["password"];
 
-			if ($respuesta=="success"){
-				session_start();
-				$_SESSION["validar"] = true;
-				
-				header("location:index.php?action=ok");
-			}else{
-				header("location:index.php");
+				$datos = array("usuario" =>$_POST["usuario"] ,
+										"email" =>$_POST["email"],
+										"password" => $_POST["password"]);
+				// echo $password;
+
+				$respuesta = Datos::registroUsuarioModel($datos, 'usuario');
+
+				if ($respuesta=="success"){
+					session_start();
+					$_SESSION["validar"] = true;
+					
+					header("location:index.php?action=ok");
+				}else{
+					header("location:index.php");
+				}
 			}
 		}
 	}
